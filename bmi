@@ -1,0 +1,35 @@
+#include <iostream>
+#include <iomanip>  // for std::setprecision
+
+int main() {
+    double weight, height;
+
+    std::cout << "Enter your weight in kilograms: ";
+    std::cin >> weight;
+
+    std::cout << "Enter your height in meters: ";
+    std::cin >> height;
+
+    if (height <= 0 || weight <= 0) {
+        std::cerr << "Height and weight must be positive values.\n";
+        return 1;
+    }
+
+    double bmi = weight / (height * height);
+
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "Your BMI is: " << bmi << "\n";
+
+    std::cout << "BMI Category: ";
+    if (bmi < 18.5) {
+        std::cout << "Underweight\n";
+    } else if (bmi < 24.9) {
+        std::cout << "Normal weight\n";
+    } else if (bmi < 29.9) {
+        std::cout << "Overweight\n";
+    } else {
+        std::cout << "Obesity\n";
+    }
+
+    return 0;
+}
